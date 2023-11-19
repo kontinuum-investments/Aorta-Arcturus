@@ -1,1 +1,8 @@
-<script>import "../app.pcss";</script><slot></slot>
+<script>
+import "../app.pcss"
+import {NavBar} from "$lib/index.ts"
+</script>
+
+<NavBar/>
+
+<slot></slot>

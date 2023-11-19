@@ -1,1 +1,3 @@
-// Reexport your entry components here
+import NavBar from "$lib/components/NavBar.svelte"
+
+export {NavBar}
