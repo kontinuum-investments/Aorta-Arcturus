@@ -5,7 +5,7 @@ on:
     release:
         types: [published]
 jobs:
-    build:
+    Publish-To-NPM-JS:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -19,4 +19,7 @@ jobs:
               shell: bash
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: npm ci && npm run publishToNPM
+              run: |
+                  export BRANCHNAME=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
+                  npm ci
+                  npm run publishToNPM

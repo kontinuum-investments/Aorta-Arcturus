@@ -1,6 +1,5 @@
 #!/bin/sh
 
-BRANCHNAME=${GITHUB_REF#refs/heads/}
 DEVBRANCHNAME=development
 
 if [ "${BRANCHNAME,,}" == "${DEVBRANCHNAME,,}" ]; then
