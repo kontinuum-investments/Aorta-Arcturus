@@ -1,3 +1,1 @@
-import NavBar from "$lib/components/NavBar.svelte"
-
-export {NavBar}
+export {default as NavBar} from "./components/NavBar.svelte"
