@@ -1,27 +1,22 @@
-name: Node.js CI
-
+name: Publish Package to NPMJS
 on:
-  push:
-    branches: [ production, development ]
-
+    push:
+        branches: [ production, development ]
+    release:
+        types: [published]
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '20.x'
+                  registry-url: 'https://registry.npmjs.org'
+            - run: npm ci
 
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Publish to NPM
-      shell: bash
-      env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm run publishToNPM
+            - name: Publish to NPM
+              shell: bash
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npm ci && npm run publishToNPM
