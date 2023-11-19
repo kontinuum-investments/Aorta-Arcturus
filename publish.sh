@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$1" == "development" ]; then
+if [ "$1" == "development" ]
+then
     STRINGTOREPLACE=aorta-arcturus
     REPLACEMENTSTRING=aorta-arcturus-dev
     ARGUMENT=s/${STRINGTOREPLACE}/${REPLACEMENTSTRING}/g
@@ -8,10 +9,10 @@ if [ "$1" == "development" ]; then
     sed -i {$ARGUMENT} package.json package-lock.json
 fi
 
-STRINGTOREPLACE=aorta-arcturus-version
+STRINGTOREPLACE=aortaarcturusversion
 REPLACEMENTSTRING=$(npm view aorta-arcturus version)
 ARGUMENT=s/${STRINGTOREPLACE}/${REPLACEMENTSTRING}/g
 
 sed -i {$ARGUMENT} package.json package-lock.json
-npm version patch -git-tag-version false
+#npm version patch -git-tag-version false
 npm publish
