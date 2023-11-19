@@ -10,6 +10,9 @@ jobs:
         steps: 
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v3
+              with:
+                  node-version: '20.x'
+                  registry-url: 'https://registry.npmjs.org'
             - run: npm install
 
             - name: Extract branch name
@@ -19,7 +22,7 @@ jobs:
             - name: Publish to NPM
               shell: bash
               env: 
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                   BRANCHNAME: eng:${{ steps.extract_branch.outputs.branch }}
               run: |
                   export BRANCHNAME=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
