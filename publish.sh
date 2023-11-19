@@ -2,7 +2,7 @@
 
 DEVBRANCHNAME=development
 
-if [ "${BRANCHNAME,,}" == "${DEVBRANCHNAME,,}" ]; then
+if [ "$BRANCHNAME" == "$DEVBRANCHNAME" ]; then
     STRINGTOREPLACE=aorta-arcturus
     REPLACEMENTSTRING=aorta-arcturus-dev
     ARGUMENT=s/${STRINGTOREPLACE}/${REPLACEMENTSTRING}/g
