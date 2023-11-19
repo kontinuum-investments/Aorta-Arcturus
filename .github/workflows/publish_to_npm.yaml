@@ -23,7 +23,4 @@ jobs:
               shell: bash
               env: 
                   NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-                  BRANCHNAME: eng:${{ steps.extract_branch.outputs.branch }}
-              run: |
-                  export BRANCHNAME=$BRANCHNAME
-                  npm run publishToNPM
+              run: npm run publishToNPM $BRANCHNAME
