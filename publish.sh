@@ -1,8 +1,6 @@
 #!/bin/sh
 
-DEVBRANCHNAME=development
-
-if [ "$1" == "$DEVBRANCHNAME" ]; then
+if [ "$1" == "development" ]; then
     STRINGTOREPLACE=aorta-arcturus
     REPLACEMENTSTRING=aorta-arcturus-dev
     ARGUMENT=s/${STRINGTOREPLACE}/${REPLACEMENTSTRING}/g
