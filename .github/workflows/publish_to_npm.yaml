@@ -17,13 +17,13 @@ jobs:
 
             - name: Extract branch name
               shell: bash
-              run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+              run: echo "BRANCHNAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
 
             - name: Publish to NPM
               shell: bash
               env: 
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
                   BRANCHNAME: eng:${{ steps.extract_branch.outputs.branch }}
               run: |
-                  export BRANCHNAME=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
+                  export BRANCHNAME=$BRANCHNAME
                   npm run publishToNPM
