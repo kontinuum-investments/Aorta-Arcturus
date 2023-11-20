@@ -78,8 +78,8 @@
             <!--<DropdownItem>Settings</DropdownItem>-->
             <!--<DropdownItem>Earnings</DropdownItem>-->
             <!--<DropdownDivider />-->
-            <DropdownItem>
-            </DropdownItem>
+            <!--<DropdownItem>-->
+            <!--</DropdownItem>-->
             <DropdownItem>Sign out</DropdownItem>
         </Dropdown>
 
