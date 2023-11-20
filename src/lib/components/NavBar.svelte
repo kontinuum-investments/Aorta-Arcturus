@@ -10,8 +10,9 @@
         DropdownHeader,
         DropdownItem,
         DropdownDivider,
-        Avatar, DarkMode
+        Avatar, DarkMode, Tooltip
     } from 'flowbite-svelte';
+    import { Icon } from '$lib/index';
 
     let defaultConfig: any = {
         app: {
@@ -20,22 +21,28 @@
         },
         menus: [{
             'title': 'Home',
-            'url': '/'
+            'url': '/',
+            'icon': 'home'
         }, {
             'title': 'Ares',
-            'url': '/ares'
+            'url': '/ares',
+            'icon': 'security'
         }, {
             'title': 'Athena',
-            'url': '/athena'
+            'url': '/athena',
+            'icon': 'hub'
         }, {
             'title': 'Chronos',
-            'url': '/chronos'
+            'url': '/chronos',
+            'icon': 'event_available'
         }, {
             'title': 'Hades',
-            'url': '/hades'
+            'url': '/hades',
+            'icon': 'savings'
         }, {
             'title': 'Hermes',
-            'url': '/hermes'
+            'url': '/hermes',
+            'icon': 'newspaper'
         }],
         user: {
             name: 'Kavindu Athaudha',
@@ -65,7 +72,10 @@
         </div>
         <NavUl {activeUrl}>
             {#each config.menus as menu}
-                <NavLi href='{menu.url}'>{menu.title}</NavLi>
+                <NavLi href='{menu.url}'>
+                    <Icon icon={menu.icon} />
+                </NavLi>
+                <Tooltip arrow={false}>{menu.title}</Tooltip>
             {/each}
         </NavUl>
 
