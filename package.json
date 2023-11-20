@@ -1,6 +1,6 @@
 {
 	"name": "aorta-arcturus",
-	"version": "aortaarcturusversion",
+	"version": "0.0.50",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",

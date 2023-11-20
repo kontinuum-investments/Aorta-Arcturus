@@ -1,8 +1,14 @@
 <script>
-import "../app.pcss"
-import {NavBar} from "$lib/index.ts"
+    import '../app.pcss';
+    import '$lib/app.css';
+    import { NavBar } from '$lib/index.ts';
+
 </script>
 
-<NavBar/>
+<div class='header'>
+    <NavBar />
+</div>
 
-<slot></slot>
+<div class='centerh'>
+    <slot></slot>
+</div>
