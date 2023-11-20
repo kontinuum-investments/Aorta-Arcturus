@@ -4,7 +4,7 @@
     export let title: string = 'Card Title';
     export let isLoaded: boolean = true;
     let defaultConfig: any = {
-        height: '64', width: '64'
+//        height: '96', width: '96'
     };
 
     export let config: any = {};
